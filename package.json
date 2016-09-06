@@ -1,17 +1,16 @@
 {
-  "name": "react-begin",
+  "name": "webpack-react",
   "version": "1.0.0",
-  "description": "a react project demo",
+  "description": "If need support ie8",
   "private": true,
   "scripts": {
-    "doiuse": "doiuse --browsers 'ie >= 9, > 1%, last 2 versions' dist/*.css",
     "update": "ncu -a",
     "clean:dist": "rm -rf dist/*",
     "build": "npm run clean:dist && NODE_ENV=prod webpack --config webpack.config.babel.js --progress --colors",
     "start": "NODE_ENV=dev webpack-dev-server --config webpack.config.babel.js"
   },
   "keywords": [
-    "react"
+    "ie8"
   ],
   "repository": {
     "type": "git",
