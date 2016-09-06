@@ -20,16 +20,14 @@ body {
   min-width: 1000px;
   background: url('../static/wechat.jpg') center;
   background-size: cover;
+  -ms-behavior: url('../backgroundsize.min.htc');
+  opacity: 1;
+  transform: translateZ(0);
+  will-change: transform;
 
   * {
     margin: 0;
     padding: 0;
-    -webkit-appearance: none;
-  }
-}
-
-:global {
-  #app {
-    height: 100%;
+    appearance: none;
   }
 }
