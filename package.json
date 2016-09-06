@@ -63,6 +63,7 @@
     "webpack-strip": "^0.1.0"
   },
   "dependencies": {
+    "flexibility": "^2.0.1",
     "calc-polyfill": "^0.1.0",
     "font-awesome": "^4.6.3",
     "normalize.css": "^4.2.0",

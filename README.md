@@ -14,9 +14,12 @@
  ```
  
 * ie8/9不兼容 `flexbox` [caniuse](http://caniuse.com/#search=flexbox)    
- 解决方法: [postcss-flexibility](https://github.com/7rulnik/postcss-flexibility)    
+ 解决方法: [postcss-flexibility](https://github.com/7rulnik/postcss-flexibility) & [flexibility](https://github.com/jonathantneal/flexibility) 
  ```javascript
  // webpack配置
+ module: {
+   noParse: path.resolve(__dirname, '../node_modules/flexibility/flexibility.js'),
+ }
  postcss: () => {
    require('postcss-flexibility'),
  }
@@ -24,11 +27,10 @@
 
 * ie8不兼容 `calc` [caniuse](http://caniuse.com/#search=calc)     
  解决方法: [calc-polyfill](https://github.com/closingtag/calc-polyfill)    
- 注： 直接 `import calc-polyfill` 会报错，不知道为什么。所以要将其作为入口文件之一，通过 `HtmlWebpackPlugin` 将其引入各个页面    
  ```
- entry: {
-   calcPolyfill: [your_local_path]/calc-polyfill/calc.min.js,
- },
+ module: {
+   noParse: path.resolve(__dirname, '../node_modules/calc-polyfill/calc.min.js'),
+ }
  ```
  
 * ie8只兼容`css-gencontent`单冒号写法，如 `:before & :after` [caniuse](http://caniuse.com/#search=css-gencontent)     
@@ -59,7 +61,7 @@
  ```
  
 * ie不兼容`will-change` [caniuse](http://caniuse.com/#search=will-change)    
- 解决方法: [postcss-will-change](https://github.com/postcss/postcss-will-change)    
+ 解决方法: [postcss-will-change](https://github.com/postcss/postcss-will-change)
  ```javascript
  // webpack配置
  postcss: () => {

@@ -8,8 +8,7 @@ import path from 'path';
 
 export default new Config().merge({
   entry: {
-    app: ['babel-polyfill', path.resolve(__dirname, '../src/App.js')],
-    calcPolyfill: path.resolve(__dirname, '../node_modules/calc-polyfill/calc.min.js'),
+    app: ['babel-polyfill', path.resolve(__dirname, '../src/App.js')]
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -32,6 +31,10 @@ export default new Config().merge({
     }),
   ],
   module: {
+    noParse: [
+      path.resolve(__dirname, '../node_modules/flexibility/flexibility.js'),
+      path.resolve(__dirname, '../node_modules/calc-polyfill/calc.min.js'),
+    ],
     loaders: [
       {
         test: /(\.js)$/,
