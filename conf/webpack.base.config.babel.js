@@ -8,7 +8,7 @@ import path from 'path';
 
 export default new Config().merge({
   entry: {
-    app: ['babel-polyfill', path.resolve(__dirname, '../src/routes.jsx')],
+    app: ['babel-polyfill', path.resolve(__dirname, '../src/index.js')],
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -16,11 +16,12 @@ export default new Config().merge({
     publicPath: '/',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js'],
     modulesDirectories: [
       path.resolve(__dirname, '../node_modules'),
       path.resolve(__dirname, '../styles'),
       path.resolve(__dirname, '../static'),
+      path.resolve(__dirname, '../template'),
     ],
   },
   plugins: [
@@ -34,9 +35,14 @@ export default new Config().merge({
     noParse: path.resolve(__dirname, '../node_modules/flexibility/flexibility.js'),
     loaders: [
       {
-        test: /(\.jsx)$/,
-        loaders: ['babel?cacheDirectory'],
+        test: /(\.js)$/,
+        loader: 'babel?cacheDirectory',
         include: path.resolve(__dirname, '../src'),
+      },
+      {
+        test: /(\.html)$/,
+        loader: 'html?interpolate',
+        include: path.resolve(__dirname, '../template'),
       },
       {
         test: /\.(png|jpe?g|ico|svg)(\?.*$|$)/,
